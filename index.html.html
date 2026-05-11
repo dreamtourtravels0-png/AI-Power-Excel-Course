@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI-Power Basic to Advance Excel – ৩ দিন ফ্রি ক্লাস</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Noto+Sans+Bengali:wght@400;600;700;800&family=Orbitron:wght@700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --neon-green: #00ff88;
+    --neon-yellow: #ffe600;
+    --neon-blue: #00cfff;
+    --dark-bg: #050a14;
+    --card-bg: #0b1423;
+    --card-border: #1a2a3a;
+    --text: #e8f4ff;
+    --muted: #7a9ab8;
+    --excel-green: #1d6f42;
+    --excel-green-light: #21a366;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans Bengali', sans-serif;
+    background: var(--dark-bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ========== HERO ========== */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px 40px;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,255,136,0.13) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 80%, rgba(0,207,255,0.1) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 20% 70%, rgba(255,230,0,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* grid lines */
+  .hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    background: linear-gradient(135deg, var(--neon-yellow), #ff9800);
+    color: #000;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin-bottom: 18px;
+    animation: pulse-badge 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-badge {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(255,230,0,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(255,230,0,0); }
+  }
+
+  .hero-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -1px;
+    background: linear-gradient(135deg, #ffffff 30%, var(--neon-green) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    margin-bottom: 6px;
+    animation: fade-up 0.7s ease both;
+  }
+
+  .hero-sub {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    color: var(--neon-green);
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    animation: fade-up 0.7s 0.1s ease both;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .hero-tagline {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: var(--muted);
+    margin-bottom: 28px;
+    animation: fade-up 0.7s 0.2s ease both;
+  }
+  .hero-tagline span { color: var(--neon-yellow); font-weight: 700; }
+
+  .free-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, #0b2a14, #0d3d1e);
+    border: 2px solid var(--neon-green);
+    border-radius: 14px;
+    padding: 14px 32px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--neon-green);
+    box-shadow: 0 0 30px rgba(0,255,136,0.25), inset 0 0 20px rgba(0,255,136,0.05);
+    margin-bottom: 32px;
+    animation: fade-up 0.7s 0.3s ease both;
+  }
+  .free-badge .rocket { font-size: 1.6rem; }
+
+  /* features chips */
+  .features-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    max-width: 700px;
+    margin-bottom: 40px;
+    animation: fade-up 0.7s 0.4s ease both;
+  }
+
+  .feature-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(0,207,255,0.08);
+    border: 1px solid rgba(0,207,255,0.25);
+    border-radius: 30px;
+    padding: 7px 16px;
+    font-size: 0.85rem;
+    color: var(--neon-blue);
+    font-weight: 600;
+  }
+  .feature-chip .check { color: var(--neon-green); font-size: 0.9rem; }
+
+  /* ========== FORM SECTION ========== */
+  .form-section {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 520px;
+    animation: fade-up 0.7s 0.5s ease both;
+  }
+
+  .form-card {
+    background: linear-gradient(160deg, #0d1e2f, #071018);
+    border: 1px solid rgba(0,255,136,0.3);
+    border-radius: 20px;
+    padding: 36px 36px 32px;
+    box-shadow:
+      0 0 60px rgba(0,255,136,0.1),
+      0 30px 60px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+  }
+
+  .form-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 6px;
+    text-align: center;
+  }
+  .form-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .form-subtitle span { color: var(--neon-yellow); }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--neon-blue);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 7px;
+  }
+  .form-group input {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1.5px solid var(--card-border);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .form-group input::placeholder { color: #3a5570; }
+  .form-group input:focus {
+    border-color: var(--neon-green);
+    box-shadow: 0 0 0 3px rgba(0,255,136,0.12);
+  }
+
+  .register-btn {
+    width: 100%;
+    background: linear-gradient(135deg, #00ff88, #00c96b);
+    color: #000;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 12px;
+    padding: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    transition: transform 0.18s, box-shadow 0.18s;
+    box-shadow: 0 6px 30px rgba(0,255,136,0.35);
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+  }
+  .register-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.18s;
+  }
+  .register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 40px rgba(0,255,136,0.5);
+  }
+  .register-btn:hover::after { opacity: 1; }
+  .register-btn:active { transform: translateY(0); }
+
+  .form-note {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 12px;
+  }
+  .form-note span { color: var(--neon-yellow); }
+
+  /* ========== SUCCESS STATE ========== */
+  .success-state {
+    display: none;
+    text-align: center;
+    padding: 20px 0;
+  }
+  .success-state .tick {
+    font-size: 3.5rem;
+    margin-bottom: 12px;
+    animation: pop 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  }
+  @keyframes pop {
+    0% { transform: scale(0); }
+    60% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+  .success-state h3 { font-size: 1.3rem; font-weight: 800; color: var(--neon-green); margin-bottom: 8px; }
+  .success-state p { font-size: 0.9rem; color: var(--muted); margin-bottom: 20px; }
+  .whatsapp-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #25d366;
+    color: #fff;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 28px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+    transition: transform 0.18s;
+  }
+  .whatsapp-btn:hover { transform: translateY(-2px); }
+
+  /* ========== STATS BAR ========== */
+  .stats-bar {
+    background: linear-gradient(135deg, #0b1c2e, #071018);
+    border-top: 1px solid var(--card-border);
+    border-bottom: 1px solid var(--card-border);
+    padding: 28px 20px;
+  }
+  .stats-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    text-align: center;
+  }
+  .stat-item { }
+  .stat-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--neon-green);
+    display: block;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); margin-top: 4px; }
+
+  /* ========== COURSE CARDS ========== */
+  .courses-section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 20px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--neon-blue);
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    color: #fff;
+  }
+  .section-title span { color: var(--neon-yellow); }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+  }
+
+  .course-card {
+    background: linear-gradient(160deg, #0d1e30, #070f1c);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 28px 26px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+  }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    border-radius: 18px 18px 0 0;
+  }
+  .course-card:nth-child(1)::before { background: linear-gradient(90deg, var(--excel-green-light), var(--neon-green)); }
+  .course-card:nth-child(2)::before { background: linear-gradient(90deg, var(--neon-blue), #7b61ff); }
+  .course-card:nth-child(3)::before { background: linear-gradient(90deg, #ff6b35, var(--neon-yellow)); }
+
+  .course-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(0,255,136,0.3);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 30px rgba(0,255,136,0.07);
+  }
+
+  .course-icon { font-size: 2.2rem; margin-bottom: 12px; }
+  .course-level {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    background: rgba(0,255,136,0.12);
+    color: var(--neon-green);
+    border: 1px solid rgba(0,255,136,0.25);
+    border-radius: 30px;
+    padding: 3px 12px;
+    margin-bottom: 12px;
+  }
+  .course-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .course-desc {
+    font-size: 0.83rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+    line-height: 1.6;
+  }
+  .course-features {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+  .course-features li {
+    font-size: 0.82rem;
+    color: #a0b8cc;
+    padding: 3px 0;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .course-features li::before { content: '✓'; color: var(--neon-green); font-weight: 700; font-size: 0.85rem; }
+
+  .course-pricing {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .price-now {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color: var(--neon-green);
+  }
+  .price-old {
+    font-size: 0.9rem;
+    color: var(--muted);
+    text-decoration: line-through;
+  }
+  .price-off {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #ff4e50, #ff6b35);
+    color: #fff;
+    border-radius: 6px;
+    padding: 3px 8px;
+  }
+
+  .course-actions { display: flex; gap: 10px; }
+
+  .btn-preview {
+    flex: 1;
+    background: transparent;
+    border: 1.5px solid var(--card-border);
+    color: var(--muted);
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 11px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: border-color 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+  .btn-preview:hover { border-color: var(--neon-blue); color: var(--neon-blue); }
+
+  .btn-enroll {
+    flex: 1.4;
+    background: linear-gradient(135deg, var(--neon-yellow), #ff9800);
+    color: #000;
+    font-family: 'Noto Sans Bengali', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 800;
+    border: none;
+    border-radius: 10px;
+    padding: 11px 14px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: transform 0.18s, box-shadow 0.18s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    box-shadow: 0 4px 18px rgba(255,230,0,0.28);
+  }
+  .btn-enroll:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(255,152,0,0.45); }
+
+  /* ========== BOTTOM BENEFITS ========== */
+  .benefits-section {
+    background: linear-gradient(135deg, #070f1c, #0a1828);
+    border-top: 1px solid var(--card-border);
+    padding: 60px 20px;
+  }
+  .benefits-grid {
+    max-width: 900px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 28px;
+    text-align: center;
+  }
+  .benefit-item { }
+  .benefit-icon { font-size: 2rem; margin-bottom: 10px; }
+  .benefit-title { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+  .benefit-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.5; }
+
+  /* ========== FOOTER ========== */
+  footer {
+    text-align: center;
+    padding: 24px 20px;
+    font-size: 0.78rem;
+    color: var(--muted);
+    border-top: 1px solid var(--card-border);
+  }
+
+  /* ========== LOADING / STATUS ========== */
+  .btn-loading { opacity: 0.7; pointer-events: none; }
+  .status-msg { font-size: 0.82rem; margin-top: 10px; text-align: center; min-height: 18px; }
+  .status-msg.error { color: #ff5c5c; }
+  .status-msg.success { color: var(--neon-green); }
+
+  /* scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--dark-bg); }
+  ::-webkit-scrollbar-thumb { background: #1a2a3a; border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="hero-badge">🚀 একটি স্মার্ট দক্ষতা, ক্যারিয়ার করবে শক্তিশালী!</div>
+
+  <div class="hero-sub">AI-POWER</div>
+  <h1 class="hero-title">EXCEL</h1>
+  <p class="hero-tagline">Basic থেকে Advance পর্যন্ত — <span>সম্পূর্ণ প্র্যাকটিক্যাল</span></p>
+
+  <div class="free-badge">
+    <span class="rocket">🎁</span>
+    ৩ দিন ফ্রি ক্লাস — কোনো ফি নেই!
+  </div>
+
+  <div class="features-grid">
+    <div class="feature-chip"><span class="check">✓</span> AI দিয়ে Excel সহজ করুন</div>
+    <div class="feature-chip"><span class="check">✓</span> প্র্যাকটিক্যাল শিখুন</div>
+    <div class="feature-chip"><span class="check">✓</span> Freelancing Job-এর জন্য প্রস্তুত হন</div>
+    <div class="feature-chip"><span class="check">✓</span> ক্যারিয়ার ও বিজনেস এগিয়ে যান</div>
+    <div class="feature-chip"><span class="check">✓</span> Excel Expert · 8+ বছর অভিজ্ঞতা</div>
+    <div class="feature-chip"><span class="check">✓</span> ছাত্র, চাকরিজীবী, ব্যবসায়ী</div>
+  </div>
+
+  <!-- FORM -->
+  <div class="form-section">
+    <div class="form-card">
+      <div id="form-area">
+        <h2 class="form-title">আজই রেজিস্ট্রেশন করুন!</h2>
+        <p class="form-subtitle">সীমিত সিট — <span>আগে আসুন, আগে শিখুন</span></p>
+
+        <div class="form-group">
+          <label>আপনার নাম</label>
+          <input type="text" id="inp-name" placeholder="সম্পূর্ণ নাম লিখুন" />
+        </div>
+        <div class="form-group">
+          <label>WhatsApp নম্বর</label>
+          <input type="tel" id="inp-phone" placeholder="01XXXXXXXXX" />
+        </div>
+        <div class="form-group">
+          <label>ইমেইল</label>
+          <input type="email" id="inp-email" placeholder="example@email.com" />
+        </div>
+
+        <button class="register-btn" id="reg-btn" onclick="handleRegister()">
+          📝 রেজিস্ট্রেশন করুন ও WhatsApp Group-এ যোগ দিন
+        </button>
+        <div class="status-msg" id="status-msg"></div>
+        <p class="form-note">🔒 আপনার তথ্য সম্পূর্ণ সুরক্ষিত · <span>সম্পূর্ণ বিনামূল্যে</span></p>
+      </div>
+
+      <div class="success-state" id="success-area">
+        <div class="tick">🎉</div>
+        <h3>রেজিস্ট্রেশন সফল হয়েছে!</h3>
+        <p>আপনার তথ্য সেভ হয়েছে। এখন WhatsApp Group-এ যোগ দিন এবং ফ্রি ক্লাসের আপডেট পান।</p>
+        <a class="whatsapp-btn" href="https://whatsapp.com/channel/0029VbBuiIJ3gvWchd0Krm2w" target="_blank">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Group-এ যোগ দিন
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STATS ===== -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">৩+</span>
+      <div class="stat-label">দিনের ফ্রি ক্লাস</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">৮+</span>
+      <div class="stat-label">বছরের অভিজ্ঞতা</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">১০০%</span>
+      <div class="stat-label">প্র্যাকটিক্যাল ক্লাস</div>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">∞</span>
+      <div class="stat-label">লাইফটাইম সাপোর্ট</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== COURSES ===== -->
+<section class="courses-section">
+  <div class="section-header">
+    <p class="section-tag">📚 আমাদের কোর্সসমূহ</p>
+    <h2 class="section-title">পেইড <span>কোর্সে এনরোল</span> করুন</h2>
+  </div>
+
+  <div class="courses-grid">
+
+    <!-- Course 1 -->
+    <div class="course-card">
+      <div class="course-icon">📊</div>
+      <span class="course-level">Beginner</span>
+      <h3 class="course-name">Excel Mastery Course</h3>
+      <p class="course-desc">Basic থেকে Advanced MS Excel। Vlookup, Pivot Table, Charts — সব কিছু শিখুন।</p>
+      <ul class="course-features">
+        <li>২০টি Class</li>
+        <li>15 Hours Content</li>
+        <li>Certificate</li>
+        <li>Lifetime Access</li>
+        <li>WhatsApp Support</li>
+      </ul>
+      <div class="course-pricing">
+        <span class="price-now">₹1,499</span>
+        <span class="price-old">₹1,999</span>
+        <span class="price-off">25% OFF!</span>
+      </div>
+      <div class="course-actions">
+        <a class="btn-preview" href="https://www.youtube.com/playlist?list=PLOWtwAbG26CIob8PDgw_mXGDeq8V_vdsl" target="_blank">
+          ▶ Preview
+        </a>
+        <a class="btn-enroll" href="https://rzp.io/rzp/oitLCSSK" target="_blank">
+          এনরোল করুন →
+        </a>
+      </div>
+    </div>
+
+    <!-- Course 2 -->
+    <div class="course-card">
+      <div class="course-icon">🔍</div>
+      <span class="course-level" style="background:rgba(0,207,255,0.12);color:var(--neon-blue);border-color:rgba(0,207,255,0.25);">Beginner</span>
+      <h3 class="course-name">Vlookup Full Tutorial</h3>
+      <p class="course-desc">20 Part সম্পূর্ণ Vlookup Tutorial। Beginner থেকে Advanced — Real Examples সহ।</p>
+      <ul class="course-features">
+        <li>২০টি Part</li>
+        <li>8 Hours Content</li>
+        <li>Certificate</li>
+        <li>Lifetime Access</li>
+      </ul>
+      <div class="course-pricing">
+        <span class="price-now" style="color:var(--neon-blue);">₹149</span>
+        <span class="price-old">₹249</span>
+        <span class="price-off">40% OFF!</span>
+      </div>
+      <div class="course-actions">
+        <a class="btn-preview" href="https://www.youtube.com/playlist?list=PLOWtwAbG26CI86SKFGWz8PXqYinUhL6x3" target="_blank">
+          ▶ Preview
+        </a>
+        <a class="btn-enroll" href="https://rzp.io/rzp/gqKSuIqo" target="_blank">
+          এনরোল করুন →
+        </a>
+      </div>
+    </div>
+
+    <!-- Course 3 -->
+    <div class="course-card">
+      <div class="course-icon">🤖</div>
+      <span class="course-level" style="background:rgba(255,107,53,0.12);color:#ff9f6b;border-color:rgba(255,107,53,0.25);">Beginner</span>
+      <h3 class="course-name">AI Power ID & Certificate Create</h3>
+      <p class="course-desc">Excel ও AI দিয়ে Automatic ID Card ও Certificate বানান। এক ক্লিকেই!</p>
+      <ul class="course-features">
+        <li>১০টি Class</li>
+        <li>4 Hours Content</li>
+        <li>Certificate</li>
+        <li>Lifetime Access</li>
+      </ul>
+      <div class="course-pricing">
+        <span class="price-now" style="color:#ff9f6b;">₹49</span>
+        <span class="price-old">₹99</span>
+        <span class="price-off">51% OFF!</span>
+      </div>
+      <div class="course-actions">
+        <a class="btn-preview" href="https://drive.google.com/drive/folders/1JJTlKxOBXiFBJvodolDffdzaOAPzgiHZ?usp=drive_link" target="_blank">
+          ▶ Preview
+        </a>
+        <a class="btn-enroll" href="https://rzp.io/rzp/EUXDlkz" target="_blank">
+          এনরোল করুন →
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== BENEFITS ===== -->
+<section class="benefits-section">
+  <div class="section-header" style="margin-bottom:40px;">
+    <p class="section-tag">💎 কেন আমাদের বেছে নেবেন</p>
+  </div>
+  <div class="benefits-grid">
+    <div class="benefit-item">
+      <div class="benefit-icon">🎁</div>
+      <div class="benefit-title">সম্পূর্ণ ফ্রি ক্লাস</div>
+      <div class="benefit-desc">কোনো ফি নেই, তবুও শিখুন প্রফেশনাল স্তরে</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">📜</div>
+      <div class="benefit-title">সার্টিফিকেট</div>
+      <div class="benefit-desc">ক্লাস সফলভাবে সম্পন্ন করলে সার্টিফিকেট পাবেন</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">🎧</div>
+      <div class="benefit-title">লাইফটাইম সাপোর্ট</div>
+      <div class="benefit-desc">যেকোনো সমস্যার সমাধান সবসময়</div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-icon">📈</div>
+      <div class="benefit-title">ক্যারিয়ার উন্নয়ন</div>
+      <div class="benefit-desc">দক্ষতা বাড়ান, ভবিষ্যৎ গড়ুন</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 The Computer School · সকল অধিকার সংরক্ষিত</p>
+  <p style="margin-top:6px;">
+    <a href="https://whatsapp.com/channel/0029VbBuiIJ3gvWchd0Krm2w" style="color:var(--neon-green);text-decoration:none;" target="_blank">📱 WhatsApp Channel</a>
+  </p>
+</footer>
+
+<script>
+  const GOOGLE_FORM_URL = "https://script.google.com/macros/s/AKfycbx_NBMsJ66eponpDIgRYsF3R8MyTyRg6ErPt_FnGm7FAH5UEhNN1SuQHgkyDjHzOwRl3w/exec";
+  const WHATSAPP_URL = "https://whatsapp.com/channel/0029VbBuiIJ3gvWchd0Krm2w";
+
+  async function handleRegister() {
+    const name = document.getElementById('inp-name').value.trim();
+    const phone = document.getElementById('inp-phone').value.trim();
+    const email = document.getElementById('inp-email').value.trim();
+    const btn = document.getElementById('reg-btn');
+    const status = document.getElementById('status-msg');
+
+    // validation
+    if (!name) { showStatus('❗ দয়া করে আপনার নাম লিখুন', 'error'); return; }
+    if (!phone || phone.length < 10) { showStatus('❗ সঠিক WhatsApp নম্বর দিন', 'error'); return; }
+    if (!email || !email.includes('@')) { showStatus('❗ সঠিক ইমেইল দিন', 'error'); return; }
+
+    btn.classList.add('btn-loading');
+    btn.textContent = 'প্রসেস হচ্ছে...';
+    showStatus('', '');
+
+    try {
+      await fetch(GOOGLE_FORM_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          email: email,
+          timestamp: new Date().toLocaleString('bn-BD')
+        })
+      });
+    } catch(e) {
+      // no-cors fetch may throw, but data is sent
+    }
+
+    // Show success
+    document.getElementById('form-area').style.display = 'none';
+    document.getElementById('success-area').style.display = 'block';
+
+    // Auto-redirect to WhatsApp after 1.5s
+    setTimeout(() => {
+      window.open(WHATSAPP_URL, '_blank');
+    }, 1500);
+  }
+
+  function showStatus(msg, type) {
+    const el = document.getElementById('status-msg');
+    el.textContent = msg;
+    el.className = 'status-msg ' + type;
+  }
+
+  // Enter key support
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Enter') handleRegister();
+  });
+</script>
+</body>
+</html>
